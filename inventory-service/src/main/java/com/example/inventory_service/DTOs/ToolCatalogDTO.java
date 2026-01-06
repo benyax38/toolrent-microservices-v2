@@ -1,25 +1,22 @@
 package com.example.inventory_service.DTOs;
 
-import com.example.inventory_service.Entity.ToolCatalogEntity;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public record ToolCatalogDTO(
-        Long toolCatalogId,
-        String toolName,
-        String toolCategory,
-        Double dailyRentalValue,
-        Double replacementValue,
-        String description,
-        int availableUnits
-) {
-    public static ToolCatalogDTO fromEntity(ToolCatalogEntity catalog) {
-        return new ToolCatalogDTO(
-                catalog.getToolCatalogId(),
-                catalog.getToolName(),
-                catalog.getToolCategory(),
-                catalog.getDailyRentalValue(),
-                catalog.getReplacementValue(),
-                catalog.getDescription(),
-                catalog.getAvailableUnits()
-        );
-    }
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class ToolCatalogDTO {
+
+    private Long toolCatalogId;
+    private String toolName;
+    private String toolCategory;
+    private Double dailyRentalValue;
+    private Double replacementValue;
+    private String description;
+    private int availableUnits;
+
 }
